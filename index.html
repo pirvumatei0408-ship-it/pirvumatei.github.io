@@ -1,0 +1,69 @@
+index.html
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Car Info</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      text-align: center;
+      padding: 50px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 5px;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🚗 Car Info</h1>
+  <p>Introdu brandul și modelul</p>
+
+  <input id="brand" placeholder="Brand (ex: BMW)">
+  <input id="model" placeholder="Model (ex: M3)">
+  <br>
+  <button onclick="searchCar()">Caută</button>
+
+  <div id="result"></div>
+
+  <script>
+    const cars = [
+      { brand: "BMW", model: "M3", price: "70.000 – 95.000 €", speed: "290 km/h" },
+      { brand: "Audi", model: "RS7", price: "85.000 – 120.000 €", speed: "305 km/h" },
+      { brand: "Mercedes", model: "AMG GT", price: "90.000 – 140.000 €", speed: "315 km/h" }
+    ];
+
+    function searchCar() {
+      const brand = document.getElementById("brand").value.toLowerCase();
+      const model = document.getElementById("model").value.toLowerCase();
+
+      const car = cars.find(c =>
+        c.brand.toLowerCase() === brand &&
+        c.model.toLowerCase() === model
+      );
+
+      const result = document.getElementById("result");
+
+      if (car) {
+        result.innerHTML = `
+          💰 Preț: ${car.price}<br>
+          🏎️ Viteză maximă: ${car.speed}
+        `;
+      } else {
+        result.innerText = "❌ Mașina nu a fost găsită.";
+      }
+    }
+  </script>
+
+</body>
+</html>
+Add car search site
