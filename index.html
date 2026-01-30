@@ -1,4 +1,5 @@
 index.html
+<input id="search" placeholder="Caută mașină (ex: Golf, Ferrari, Chiron)" oninput="quickSearch()">
 <!DOCTYPE html>
 <html lang="ro">
 <head>
@@ -68,3 +69,32 @@ index.html
 </html>
 Add car search site
 <script src="cars.js"></script>
+<div id="list"></div>
+<script src="cars.js"></script>
+
+<script>
+function quickSearch() {
+  const query = document.getElementById("search").value.toLowerCase();
+  const list = document.getElementById("list");
+  list.innerHTML = "";
+
+  if (query.length < 2) return;
+
+  for (let brand in cars) {
+    for (let model in cars[brand]) {
+      if (
+        model.toLowerCase().includes(query) ||
+        brand.toLowerCase().includes(query)
+      ) {
+        const car = cars[brand][model];
+        list.innerHTML += `
+          <p>
+            <strong>${brand} ${model}</strong> – ${car.type}
+            | 💰 ${car.price} | 🏎️ ${car.speed}
+          </p>
+        `;
+      }
+    }
+  }
+}
+</script>
