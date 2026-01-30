@@ -1,4 +1,4 @@
-const cars = {
+
 
   // 🔹 MASINI NORMALE
   "Volkswagen": {
@@ -76,7 +76,7 @@ const cars = {
     "Huayra": { price: "2.600.000 €+", speed: "383 km/h", type: "Hypercar" }
   }
 };
-document.getElementById("result").innerHTML = `
+("result").innerHTML = `
   🚘 Tip: ${car.type}<br>
   💰 Preț: ${car.price}<br>
   🏎️ Viteză maximă: ${car.speed}
