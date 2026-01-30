@@ -81,4 +81,52 @@ document.getElementById("result").innerHTML = `
   💰 Preț: ${car.price}<br>
   🏎️ Viteză maximă: ${car.speed}
 `;
-  
+  const cars = {
+  "Audi": {
+    "A3": { price: "25.000 – 40.000 €", speed: "210 km/h", type: "Normal", hp: "150 hp", nm: "250 Nm" },
+    "A4": { price: "35.000 – 55.000 €", speed: "240 km/h", type: "Normal", hp: "190 hp", nm: "320 Nm" },
+    "A6": { price: "45.000 – 75.000 €", speed: "250 km/h", type: "Normal", hp: "245 hp", nm: "370 Nm" },
+    "RS6": { price: "120.000 €+", speed: "305 km/h", type: "Supercar", hp: "600 hp", nm: "800 Nm" },
+    "R8": { price: "180.000 €+", speed: "330 km/h", type: "Supercar", hp: "620 hp", nm: "580 Nm" }
+  },
+
+  "BMW": {
+    "320d": { price: "30.000 – 45.000 €", speed: "230 km/h", type: "Normal", hp: "190 hp", nm: "400 Nm" },
+    "M3": { price: "90.000 €+", speed: "290 km/h", type: "Supercar", hp: "510 hp", nm: "650 Nm" },
+    "M5 CS": { price: "150.000 €+", speed: "305 km/h", type: "Supercar", hp: "635 hp", nm: "750 Nm" }
+  },
+
+  "Mercedes": {
+    "C220": { price: "35.000 – 50.000 €", speed: "235 km/h", type: "Normal", hp: "194 hp", nm: "400 Nm" },
+    "AMG C63": { price: "95.000 €+", speed: "290 km/h", type: "Supercar", hp: "510 hp", nm: "700 Nm" },
+    "AMG GT": { price: "140.000 €+", speed: "315 km/h", type: "Supercar", hp: "585 hp", nm: "700 Nm" }
+  },
+
+  "Volkswagen": {
+    "Golf": { price: "25.000 – 35.000 €", speed: "210 km/h", type: "Normal", hp: "150 hp", nm: "250 Nm" },
+    "Golf GTI": { price: "40.000 €+", speed: "250 km/h", type: "Sport", hp: "245 hp", nm: "370 Nm" },
+    "Golf R": { price: "50.000 €+", speed: "270 km/h", type: "Sport", hp: "320 hp", nm: "420 Nm" }
+  },
+
+  "Ferrari": {
+    "488 GTB": { price: "250.000 €+", speed: "330 km/h", type: "Supercar", hp: "670 hp", nm: "760 Nm" },
+    "SF90": { price: "450.000 €+", speed: "340 km/h", type: "Hypercar", hp: "1000 hp", nm: "800 Nm" }
+  },
+
+  "Lamborghini": {
+    "Huracan": { price: "230.000 €+", speed: "325 km/h", type: "Supercar", hp: "610 hp", nm: "560 Nm" },
+    "Aventador": { price: "400.000 €+", speed: "350 km/h", type: "Supercar", hp: "770 hp", nm: "720 Nm" }
+  },
+
+  "Bugatti": {
+    "Chiron": { price: "3.000.000 €+", speed: "420 km/h", type: "Hypercar", hp: "1500 hp", nm: "1600 Nm" }
+  },
+
+  "Koenigsegg": {
+    "Jesko": { price: "3.000.000 €+", speed: "480 km/h", type: "Hypercar", hp: "1600 hp", nm: "1500 Nm" }
+  },
+
+  "Rimac": {
+    "Nevera": { price: "2.000.000 €+", speed: "412 km/h", type: "Hypercar", hp: "1914 hp", nm: "2360 Nm" }
+  }
+};
