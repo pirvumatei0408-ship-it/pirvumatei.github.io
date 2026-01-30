@@ -1,100 +1,95 @@
-index.html
-<input id="search" placeholder="Caută mașină (ex: Golf, Ferrari, Chiron)" oninput="quickSearch()">
 <!DOCTYPE html>
 <html lang="ro">
 <head>
   <meta charset="UTF-8">
   <title>Car Info</title>
+
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f2f2f2;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+      color: white;
       text-align: center;
-      padding: 50px;
+      padding: 40px;
     }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
     input, button {
-      padding: 10px;
-      margin: 5px;
+      padding: 12px;
+      margin: 8px;
       font-size: 16px;
+      border-radius: 8px;
+      border: none;
     }
-    #result {
-      margin-top: 20px;
-      font-size: 18px;
+
+    input {
+      width: 280px;
+    }
+
+    button {
+      background: #ff9800;
       font-weight: bold;
+      cursor: pointer;
+    }
+
+    #result, #list {
+      margin-top: 20px;
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    p {
+      margin: 8px 0;
     }
   </style>
 </head>
+
 <body>
 
   <h1>🚗 Car Info</h1>
-  <p>Introdu brandul și modelul</p>
 
-  <input id="brand" placeholder="Brand (ex: BMW)">
-  <input id="model" placeholder="Model (ex: M3)">
-  <br>
-  <button onclick="searchCar()">Caută</button>
+  <input
+    id="search"
+    placeholder="Caută mașină (ex: Golf, Ferrari, Chiron)"
+    oninput="quickSearch()"
+  >
 
   <div id="result"></div>
+  <div id="list"></div>
+
+  <script src="cars.js"></script>
 
   <script>
-    const cars = [
-      { brand: "BMW", model: "M3", price: "70.000 – 95.000 €", speed: "290 km/h" },
-      { brand: "Audi", model: "RS7", price: "85.000 – 120.000 €", speed: "305 km/h" },
-      { brand: "Mercedes", model: "AMG GT", price: "90.000 – 140.000 €", speed: "315 km/h" }
-    ];
+    function quickSearch() {
+      const query = document.getElementById("search").value.toLowerCase();
+      const list = document.getElementById("list");
+      list.innerHTML = "";
 
-    function searchCar() {
-      const brand = document.getElementById("brand").value.toLowerCase();
-      const model = document.getElementById("model").value.toLowerCase();
+      if (query.length < 2) return;
 
-      const car = cars.find(c =>
-        c.brand.toLowerCase() === brand &&
-        c.model.toLowerCase() === model
-      );
-
-      const result = document.getElementById("result");
-
-      if (car) {
-        result.innerHTML = `
-          💰 Preț: ${car.price}<br>
-          🏎️ Viteză maximă: ${car.speed}
-        `;
-      } else {
-        result.innerText = "❌ Mașina nu a fost găsită.";
+      for (let brand in cars) {
+        for (let model in cars[brand]) {
+          if (
+            model.toLowerCase().includes(query) ||
+            brand.toLowerCase().includes(query)
+          ) {
+            const car = cars[brand][model];
+            list.innerHTML += `
+              <p>
+                <strong>${brand} ${model}</strong> – ${car.type}
+                | 💰 ${car.price} | 🏎️ ${car.speed}
+              </p>
+            `;
+          }
+        }
       }
     }
   </script>
 
 </body>
 </html>
-Add car search site
-<script src="cars.js"></script>
-<div id="list"></div>
-<script src="cars.js"></script>
-
-<script>
-function quickSearch() {
-  const query = document.getElementById("search").value.toLowerCase();
-  const list = document.getElementById("list");
-  list.innerHTML = "";
-
-  if (query.length < 2) return;
-
-  for (let brand in cars) {
-    for (let model in cars[brand]) {
-      if (
-        model.toLowerCase().includes(query) ||
-        brand.toLowerCase().includes(query)
-      ) {
-        const car = cars[brand][model];
-        list.innerHTML += `
-          <p>
-            <strong>${brand} ${model}</strong> – ${car.type}
-            | 💰 ${car.price} | 🏎️ ${car.speed}
-          </p>
-        `;
-      }
-    }
-  }
-}
-</script>
