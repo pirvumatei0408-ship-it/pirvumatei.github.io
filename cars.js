@@ -12,7 +12,14 @@ const cars = {
     "Seria 5": { price: "45.000 – 75.000 €", speed: "250 km/h", type: "Normal" },
     "X5": { price: "60.000 – 95.000 €", speed: "230 km/h", type: "Normal" }
   },
-
+"Audi": {
+  "A3": { price: "25.000 – 40.000 €", speed: "210 km/h", type: "Normal" },
+  "A4": { price: "35.000 – 55.000 €", speed: "240 km/h", type: "Normal" },
+  "A6": { price: "45.000 – 75.000 €", speed: "250 km/h", type: "Normal" },
+  "Q5": { price: "45.000 – 70.000 €", speed: "230 km/h", type: "Normal" },
+  "RS6": { price: "120.000 €+", speed: "305 km/h", type: "Supercar" },
+  "R8": { price: "180.000 €+", speed: "330 km/h", type: "Supercar" }
+},
   "Dacia": {
     "Logan": { price: "9.000 – 14.000 €", speed: "175 km/h", type: "Normal" },
     "Duster": { price: "14.000 – 22.000 €", speed: "190 km/h", type: "Normal" }
@@ -74,12 +81,4 @@ document.getElementById("result").innerHTML = `
   💰 Preț: ${car.price}<br>
   🏎️ Viteză maximă: ${car.speed}
 `;
-const cars = {
-  "Audi": {
-  "A3": { price: "25.000 – 40.000 €", speed: "210 km/h", type: "Normal" },
-  "A4": { price: "35.000 – 55.000 €", speed: "240 km/h", type: "Normal" },
-  "A6": { price: "45.000 – 75.000 €", speed: "250 km/h", type: "Normal" },
-  "Q5": { price: "45.000 – 70.000 €", speed: "230 km/h", type: "Normal" },
-  "RS6": { price: "120.000 €+", speed: "305 km/h", type: "Supercar" },
-  "R8": { price: "180.000 €+", speed: "330 km/h", type: "Supercar" }
-},
+  
