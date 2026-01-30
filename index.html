@@ -80,12 +80,15 @@
             brand.toLowerCase().includes(query)
           ) {
             const car = cars[brand][model];
-            list.innerHTML += `
-              <p>
-                <strong>${brand} ${model}</strong> – ${car.type}
-                | 💰 ${car.price} | 🏎️ ${car.speed}
-              </p>
-            `;
+          list.innerHTML += `
+  <p>
+    <strong>${brand} ${model}</strong> – ${car.type}<br>
+    💰 ${car.price} |
+    🏎️ ${car.speed} |
+    🐎 ${car.hp} |
+    🔧 ${car.nm}
+  </p>
+`;
           }
         }
       }
